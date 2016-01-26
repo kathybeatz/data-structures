@@ -128,17 +128,17 @@ define([
       });
 
       it('reports a size of 0 after removing more items than were added', function() {
-        queue.enqueue('a');
-        queue.dequeue();
-        queue.dequeue();
+        queue.enqueue('a'); //pushed a
+        queue.dequeue(); //pop 1
+        queue.dequeue(); //pop 2
         expect(queue.size()).to.equal(0);
       });
 
       it('allows sequentially adding and removing items', function() {
-        queue.enqueue('a');
-        expect(queue.dequeue()).to.equal('a');
-        queue.enqueue('b');
-        expect(queue.dequeue()).to.equal('b');
+        queue.enqueue('a'); //push a
+        expect(queue.dequeue()).to.equal('a'); //push item to equal a
+        queue.enqueue('b'); //pop b
+        expect(queue.dequeue()).to.equal('b'); //pop item to equal b
       });
 
     });
